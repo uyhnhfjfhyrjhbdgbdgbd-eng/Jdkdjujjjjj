@@ -1,0 +1,26 @@
+{
+  "geode": "4.0.0",
+  "gd": {
+    "win": "2.2081",
+    "android": "2.2081"
+  },
+  "id": "conuxgd.autobot-ai",
+  "name": "AutoBot AI",
+  "version": "1.0.0",
+  "developer": "AutoBotAI",
+  "description": "Starter project for an Android Geode AutoPlay/Noclip mod.",
+  "settings": {
+    "autoplay": {
+      "name": "AutoPlay",
+      "description": "Toggle placeholder. Gameplay automation is not implemented yet.",
+      "type": "bool",
+      "default": false
+    },
+    "noclip": {
+      "name": "Noclip",
+      "description": "Toggle placeholder. Collision bypass is not implemented yet.",
+      "type": "bool",
+      "default": false
+    }
+  }
+}
