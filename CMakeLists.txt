@@ -1,14 +1,24 @@
+
 cmake_minimum_required(VERSION 3.21)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 project(AutoBotAI VERSION 1.0.0)
 
-# Build with the Geode CLI and the matching Geode SDK/toolchain.
-add_library(${PROJECT_NAME} SHARED
-    src/main.cpp
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+    src/*.cpp
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
+
+if (NOT DEFINED ENV{GEODE_SDK})
+    message(FATAL_ERROR "Geode SDK not found")
+endif()
+
+add_subdirectory(
+    $ENV{GEODE_SDK}
+    ${CMAKE_CURRENT_BINARY_DIR}/geode
 )
 
-# Geode's generated CMake environment supplies the SDK and packaging helpers.
 setup_geode_mod(${PROJECT_NAME})
