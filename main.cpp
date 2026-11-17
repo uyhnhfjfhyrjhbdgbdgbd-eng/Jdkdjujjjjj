@@ -1,8 +1,7 @@
-#include <Geode/Geode.hpp>
-
-using namespace geode::prelude;
-
-$on_mod(Loaded) {
-    log::info("AutoBot AI loaded.");
-    log::info("This starter build only registers settings; AutoPlay/Noclip are not implemented.");
-}
+      - name: Compilar Android ARM64
+        id: build
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          target: Android64
+          sdk: given
+          configure-args: -DGEODE_DISABLE_FMT_CONSTEVAL=ON
